@@ -12,6 +12,18 @@
  */
 
 import React from 'react';
+import Header from 'components/Header';
+import AutosizedGrid from 'components/AutosizedGrid';
+
+const styles = {
+  root: {
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'column',
+    background: 'orange',
+  },
+};
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -21,8 +33,9 @@ export default class App extends React.Component { // eslint-disable-line react/
 
   render() {
     return (
-      <div>
-        {this.props.children}
+      <div style={styles.root}>
+        <Header />
+        <AutosizedGrid />
       </div>
     );
   }
