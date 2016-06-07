@@ -10,61 +10,30 @@ import Footer from 'components/Footer';
 import dummyData from 'utils/dummyData';
 
 class AutosizedGrid extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      gridHeight: 500,
-    };
-  }
-
-  componentWillMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentDidMount() {
-    this.handleResize();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
   getRow = (index) => dummyData[index];
-
-  handleResize = () => {
-    const newHeight = document.getElementById('grid-container').offsetHeight - document.getElementById('footer').offsetHeight;
-
-    if (newHeight !== this.state.gridHeight) {
-      this.setState({ gridHeight: newHeight });
-    }
-  }
 
   render() {
     return (
-      <AutoSizer>
-        {({ height, width }) => (
-          <div id="grid-container" style={{ height, width, display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1 }}>
+        <div style={{ flex: '1 1 auto' }}>
+          <AutoSizer>
+            {({ height, width }) => (
               <FlexTable
-                height={this.state.gridHeight}
+                height={height}
                 width={width}
                 headerHeight={30}
                 rowHeight={30}
                 rowCount={dummyData.length}
                 rowGetter={({ index }) => this.getRow(index)}
-              >
+                >
                 <FlexColumn
                   dataKey="name"
                   flexGrow={1}
                   width={100}
-                />
+                  />
               </FlexTable>
-              <Footer />
-            </div>
-          </div>
-        )}
-      </AutoSizer>
+            )}
+          </AutoSizer>
+        </div>
     );
   }
 }

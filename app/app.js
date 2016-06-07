@@ -14,6 +14,7 @@ import 'file?name=[name].[ext]!./.htaccess';      // eslint-disable-line import/
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-virtualized/styles.css';
 
 // Set up the router, wrapping all Routes in the App component
 import App from 'containers/App';

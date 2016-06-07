@@ -14,6 +14,7 @@
 import React from 'react';
 import Header from 'components/Header';
 import AutosizedGrid from 'components/AutosizedGrid';
+import Footer from 'components/Footer';
 
 const styles = {
   root: {
@@ -36,6 +37,7 @@ export default class App extends React.Component { // eslint-disable-line react/
       <div style={styles.root}>
         <Header />
         <AutosizedGrid />
+        <Footer />
       </div>
     );
   }

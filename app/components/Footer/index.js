@@ -9,8 +9,7 @@ import React from 'react';
 const styles = {
   root: {
     background: 'teal',
-    height: '100px',
-    flexShrink: 1,
+    flex: '0 0 auto',
   },
 };
 
